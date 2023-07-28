@@ -27,9 +27,6 @@ elif args.use == "power":
     elif args.value == "false":
         base = "7e0004000000ff00ef"
 
-print(base)
-
-
 async def main (address):
     async with BleakClient(address) as client:
         param = bytes.fromhex(base)
