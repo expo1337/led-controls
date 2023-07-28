@@ -30,10 +30,10 @@ elif args.use == "power":
 print(base)
 
 
-# async def main (address):
-#     async with BleakClient(address) as client:
-#         param = bytes.fromhex("7e04016401ffff00ef")
-#         model_number = await client.write_gatt_char(uuid, param)
+async def main (address):
+    async with BleakClient(address) as client:
+        param = bytes.fromhex(base)
+        model_number = await client.write_gatt_char(uuid, param)
 
-# asyncio.run(main(address))
+asyncio.run(main(address))
 
