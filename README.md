@@ -2,7 +2,7 @@
 
 # Custom CLI tool for controlling ELK-BLEDOM Led strips
 
-![Preview Gif](https://cdn.discordapp.com/attachments/834520706410217522/1134564779235737732/preview.gif)
+<img src="https://cdn.discordapp.com/attachments/834520706410217522/1134564779235737732/preview.gif" width="200" height="200" />
 
 [How](#how)
 [Setup](#setup)
