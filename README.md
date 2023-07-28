@@ -6,6 +6,7 @@
 [How](#how)
 [Setup](#setup)
 [Options](#options)
+[Contributions](#contributing)
 
 ## How?
 
@@ -40,3 +41,8 @@ $ python ./main.py --options....
   - Color: 6 Digit Color HEX Code
   - Brightness: Value between 0 and 100
   - Power: true or false
+
+
+## Contributing
+
+Contributions are welcome! Please create a new branch and submit a pull request.
