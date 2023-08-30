@@ -3,8 +3,10 @@ import argparse
 import string
 from bleak import BleakClient
 from flask import Flask, request, jsonify
+from flask_cors import CORS
 
 app = Flask(__name__)
+CORS(app)
 
 address = "BE:58:A6:00:5B:C4"
 uuid = "0000fff3-0000-1000-8000-00805f9b34fb"
