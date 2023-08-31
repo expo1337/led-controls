@@ -3,10 +3,11 @@ import argparse
 import string
 from bleak import BleakClient
 from flask import Flask, request, jsonify
-from flask_cors import CORS
+from flask_cors import CORS, cross_origin
 
 app = Flask(__name__)
 CORS(app)
+app.config['CORS_HEADERS'] = 'Content-Type'
 
 address = "BE:58:A6:00:5B:C4"
 uuid = "0000fff3-0000-1000-8000-00805f9b34fb"
@@ -36,12 +37,14 @@ async def changePower (power, address):
         model_number = await client.write_gatt_char(uuid, param)
 
 @app.route('/power', methods=['POST'])
+@cross_origin()
 def update_power():
     power = bytes(request.get_data()).decode('utf-8')
     asyncio.run(changePower(power, address))
     return "Power-State Changed!"
 
 @app.route('/color', methods=['POST'])
+@cross_origin()
 def update_color():
     color = bytes(request.get_data()).decode('utf-8')
     print(color)
@@ -49,6 +52,7 @@ def update_color():
     return "Color Changed!"
 
 @app.route('/brightness', methods=['POST'])
+@cross_origin()
 def update_brightness():
     brightness = bytes(request.get_data()).decode('utf-8')
     asyncio.run(changeBrightness(brightness, address))
@@ -57,4 +61,4 @@ def update_brightness():
 @app.route('/', methods=['GET'])
 def random():
     return "Hewwo"
-app.run(debug=True)
+app.run(host="0.0.0.0")
